@@ -1,0 +1,10 @@
+{
+  "name": "moodle-atto_geodata-button",
+  "builds": {
+    "moodle-atto_geodata-button": {
+      "jsfiles": [
+        "button.js"
+      ]
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "moodle-atto_geodata-button": {
+      "requires": [
+          "moodle-editor_atto-plugin"
+      ]
+  }
+}
