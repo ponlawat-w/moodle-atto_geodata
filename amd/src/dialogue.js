@@ -56,7 +56,7 @@ define([
   return (type = 'point', value = undefined) => new Promise((resolve, reject) => {
     ModalFactory.create({
       type: ModalFactory.types.SAVE_CANCEL,
-      title: 'Test',
+      title: M.str.atto_geodata.geodata,
       body: TEMPLATE,
       large: true
     }).then(modal => {

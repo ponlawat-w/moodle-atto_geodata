@@ -27,17 +27,17 @@ define([
         const data = $('#atto_geodata-geojson').val();
 
         if (!data.trim()) {
-          throw '[[EMPTY]]';
+          throw M.str.atto_geodata.geojsonempty;
         }
 
         const json = JSON.parse(data);
         if (!json) {
-          throw '[[INVALID]]';
+          throw M.str.atto_geodata.geojsoninvalid;
         }
-
+        
         const geojson = L.geoJson(json);
         if (!geojson) {
-          throw '[[INVALID]]';
+          throw M.str.atto_geodata.geojsoninvalid;
         }
 
         const $result = $('<span>')

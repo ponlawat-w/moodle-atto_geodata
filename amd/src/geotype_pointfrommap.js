@@ -19,13 +19,16 @@ define([
         this._marker = Leaflet.marker(this._point);
         this._map.addLayer(this._marker);
       }
-      $('#atto_geodata-latlng').html(`[[LAT]]: ${this._point.lat}, [[LNG]]: ${this._point.lng}`);
+      $('#atto_geodata-latlng').html(
+        `${M.str.atto_geodata.latitude}: ${this._point.lat},` +
+        ` ${M.str.atto_geodata.longitude}: ${this._point.lng}`
+      );
     } else {
       this._point = null;
       if (this._marker) {
         this._map.removeLayer(this._marker);
       }
-      $('#atto_geodata-latlng').html('[[NOPOINT]]');
+      $('#atto_geodata-latlng').html(M.str.atto_geodata.nopointselected);
     }
   },
   init: function(defaultValue) {
@@ -34,7 +37,7 @@ define([
     $('<div>')
       .attr('id', 'atto_geodata-latlng')
       .addClass('text-center')
-      .html('[[NOPOINT]]')
+      .html(M.str.atto_geodata.nopointselected)
       .appendTo($body);
 
     $('<div>')

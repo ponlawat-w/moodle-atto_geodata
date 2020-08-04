@@ -20,7 +20,6 @@ Y.namespace('M.atto_geodata').Button = Y.Base.create('button', Y.M.editor_atto.E
   _activate: function() {
     require(['atto_geodata/dialogue'], function(OpenGeoDataDialogue) {
       var selection = this.get('host').getSelection();
-      console.log(selection);
       OpenGeoDataDialogue()
         .then(function(data) {
             this.get('host').setSelection(selection);
