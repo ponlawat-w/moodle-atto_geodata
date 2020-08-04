@@ -50,6 +50,13 @@ define([
         this.setPoint(e.latlng);
       }.bind(this));
       $('#atto_geodata-map').addClass('leaflet-crosshair');
+    
+    if (defaultValue) {
+      const data = defaultValue.split(',').map(x => parseFloat(x.trim()));
+      if (data.length > 1) {
+        this.setPoint({lat: data[0], lng: data[1]});
+      }
+    }
   },
   save: function() {
     if (this._point && this._point.lat && this._point.lng) {
@@ -62,8 +69,15 @@ define([
   },
   dispose: function() {
     if (this._map) {
-      this._map.off();
-      this._map.remove();
+      if (this._marker) {
+        this._marker.remove();
+      }
+      this._marker = null;
+
+      if (this._map) {
+        this._map.off();
+        this._map.remove();
+      }
       this._map = null;
     }
   }

@@ -10,10 +10,15 @@ Y.namespace('M.atto_geodata').Button = Y.Base.create('button', Y.M.editor_atto.E
       callback: this._activate,
       title: 'addgeodata'
     });
+
+    require(['atto_geodata/init'], function(init) {
+      init(this.get('host'));
+    }.bind(this));
   },
   _activate: function() {
     require(['atto_geodata/dialogue'], function(OpenGeoDataDialogue) {
       var selection = this.get('host').getSelection();
+      console.log(selection);
       OpenGeoDataDialogue()
         .then(function(data) {
             this.get('host').setSelection(selection);

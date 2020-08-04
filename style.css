@@ -1,0 +1,7 @@
+.filter-geodata {
+  cursor: pointer;
+  font-family: monospace;
+  font-size: 0.6em;
+  background-color: #ededed;
+  margin: 0 5px;
+}
